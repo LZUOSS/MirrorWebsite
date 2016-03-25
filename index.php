@@ -1,25 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<?php
+$MIRROR_SCRIPT_DIR="/data/script/";
+$MIRROR_LOCK_DIR="/data/script/lock/";
+$current_dir_list=scandir('./');
+$current_dir_folder_list=array();
+$sync_lock_dir_list=scandir($MIRROR_LOCK_DIR);
+$sync_lock_list = array();
+$mirror_item=array(
+    "name" => "",
+    "update_time" => "-",
+    "status" => "-"
+);
+global $mirror_list;
+$mirror_list=array();
+foreach($current_dir_list as $item_in_current_folder){
+    if ( !(($item_in_current_folder == ".") || ($item_in_current_folder == "..") || ($item_in_current_folder == "assets") )){
+        if (strpos($item_in_current_folder,"php")==FALSE) {
+            $current_dir_folder_list[]=$item_in_current_folder;
+        }
+    }
+}
+if (!empty($sync_lock_dir_list)){
+    foreach ($sync_lock_dir_list as $item){
+        if ( !(($item == ".") || ($item == "..")) ){
+            $sync_lock_list[] = str_replace(".json","",$item);
+        }
+    }
+}
+foreach ($current_dir_folder_list as $item){
+    $mirror_item["name"]=$item;
+    if (in_array($item,$sync_lock_list)){
+        $mirror_item["status"]="Syncing";
+    }
+    $mirror_list[]=$mirror_item;
+    $mirror_item=array(
+        "name" => "",
+        "update_time" => "-",
+        "status" => "-"
+    );
+}
+?>
 
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="兰州大学开源社区镜像站提供主流Linux发行版以及开源、自由软件镜像。">
 
     <title>兰州大学开源社区镜像站</title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/freelancer.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="./assets/css/freelancer.css" rel="stylesheet">
+    <link href="./assets/css/custom.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="./assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.lug.ustc.edu.cn/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.lug.ustc.edu.cn/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -82,16 +122,17 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                        </tr>
-                        <tr>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                        </tr>
+
+                        <?php
+                        //print_r($mirror_list);
+                        foreach($mirror_list as $item){
+                            echo('                        <tr>'."\n");
+                            echo('                            <td  class="mirror_item">'.'<a href="/'.$item["name"].'/"">'.$item["name"].'</a></td>'."\n");
+                            echo('                            <td>'.$item["update_time"].'</td>'."\n");
+                            echo('                            <td>'.$item["status"].'</td>'."\n");
+                            echo('                        </tr>'."\n");
+                        }
+                        ?>
                         </tbody>
                     </table>
                 </div>
@@ -119,7 +160,7 @@
                                 <p><i class="fa fa-envelope"></i> E-Mail: <a href="mailto:oss.lzu.edu.cn@gmail.com" class="href">oss.lzu.edu.cn@gmail.com</a></p>
                             </li>
                             <li>
-                                <p><i class="fa fa-github"></i> <a href="https://github.com/LZUOSS/Mirror" class="href">GitHub</a></p>
+                                <p><i class="fa fa-github"></i> <a href="https://github.com/LZUOSS/Mirror" class="href" target="_blank">GitHub</a></p>
                             </li>
                         </ul>
                     </div>
@@ -134,7 +175,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Lanzhou University Open Source Society 2006-2016
+                        Lanzhou University Open Source Society 2006-<?php echo date('Y'); ?>
                     </div>
                 </div>
             </div>
@@ -153,19 +194,19 @@
     <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/cbpAnimatedHeader.js"></script>
+    <script src="./assets/js/classie.js"></script>
+    <script src="./assets/js/cbpAnimatedHeader.js"></script>
 
     <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+    <script src="./assets/js/jqBootstrapValidation.js"></script>
+    <script src="./assets/js/contact_me.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="js/freelancer.js"></script>
+    <script src="./assets/js/freelancer.js"></script>
 
 </body>
 

@@ -20,3 +20,7 @@ header .intro-text .name-en {
 .contact_list {
     text-align: left;
 }
+
+table a:not(.btn), .table a:not(.btn) {
+    text-decoration: none;
+}
