@@ -1,0 +1,22 @@
+header .intro-text .name-en {
+    display: block;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 2em;
+    font-weight: 700;
+}
+@media(min-width:768px) {
+    header .intro-text .name-en {
+        font-size: 2.75em;
+    }
+}
+
+.mirror_list {
+    font-size: 1.3em;
+}
+.sidebar {
+    font-size: 1.3em;
+}
+
+.contact_list {
+    text-align: left;
+}
