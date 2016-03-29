@@ -1,4 +1,6 @@
 .gitignore
 .idea
 .Archive
+test.php
+test_file_read.php
 img

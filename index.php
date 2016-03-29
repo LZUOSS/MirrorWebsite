@@ -1,45 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
 
 <?php
 $MIRROR_SCRIPT_DIR="/data/script/";
 $MIRROR_LOCK_DIR="/data/script/lock/";
+$MIRROR_STATUS_DIR="/data/script/status/";
 $current_dir_list=scandir('./');
 $current_dir_folder_list=array();
 $sync_lock_dir_list=scandir($MIRROR_LOCK_DIR);
 $sync_lock_list = array();
 $mirror_item=array(
-    "name" => "",
-    "update_time" => "-",
-    "status" => "-"
+	"name" => "",
+	"update_time" => "-",
+	"status" => "-"
 );
 global $mirror_list;
 $mirror_list=array();
 foreach($current_dir_list as $item_in_current_folder){
-    if ( !(($item_in_current_folder == ".") || ($item_in_current_folder == "..") || ($item_in_current_folder == "assets") )){
-        if (strpos($item_in_current_folder,"php")==FALSE) {
-            $current_dir_folder_list[]=$item_in_current_folder;
-        }
-    }
-}
-if (!empty($sync_lock_dir_list)){
-    foreach ($sync_lock_dir_list as $item){
-        if ( !(($item == ".") || ($item == "..")) ){
-            $sync_lock_list[] = str_replace(".json","",$item);
-        }
-    }
+	if ( !(($item_in_current_folder == ".") || ($item_in_current_folder == "..") || ($item_in_current_folder == "assets") )){
+		if (strpos($item_in_current_folder,"php")==FALSE) {
+			$current_dir_folder_list[]=$item_in_current_folder;
+		}
+	}
 }
 foreach ($current_dir_folder_list as $item){
-    $mirror_item["name"]=$item;
-    if (in_array($item,$sync_lock_list)){
-        $mirror_item["status"]="Syncing";
-    }
-    $mirror_list[]=$mirror_item;
-    $mirror_item=array(
-        "name" => "",
-        "update_time" => "-",
-        "status" => "-"
-    );
+	$mirror_item["name"]=$item;
+	if ($lock_file_handle=fopen($MIRROR_LOCK_DIR.$item.".lock", "r")){
+		$mirror_item["status"]=1;
+
+	}else{
+		$mirror_item["status"]=0;
+	}
+	fclose($lock_file_handle);
+	if ($status_file_handle=fopen($MIRROR_STATUS_DIR.$item, "r")) {
+		$mirror_item["update_time"]=str_replace("\n","",fgets($status_file_handle));
+	}else{
+		$mirror_item["update_time"]="-";
+	}
+	fclose($status_file_handle);
+	$mirror_list[]=$mirror_item;
+	$mirror_item=array(
+		"name" => "",
+		"update_time" => "-",
+		"status" => "-"
+	);
 }
 ?>
 
@@ -60,8 +64,8 @@ foreach ($current_dir_folder_list as $item){
 
     <!-- Custom Fonts -->
     <link href="./assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.lug.ustc.edu.cn/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="http://fonts.lug.ustc.edu.cn/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="./assets/css/Montserrat.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -127,9 +131,13 @@ foreach ($current_dir_folder_list as $item){
                         //print_r($mirror_list);
                         foreach($mirror_list as $item){
                             echo('                        <tr>'."\n");
-                            echo('                            <td  class="mirror_item">'.'<a href="/'.$item["name"].'/"">'.$item["name"].'</a></td>'."\n");
+                            echo('                            <td  class="mirror_item">'.'<a href="/'.$item["name"].'/">'.$item["name"].'</a></td>'."\n");
                             echo('                            <td>'.$item["update_time"].'</td>'."\n");
-                            echo('                            <td>'.$item["status"].'</td>'."\n");
+	                        if ($item["status"]==1) {
+		                        echo('                            <td><span class="label label-warning">Syncing</span></td>'."\n");
+	                        } else{
+		                        echo('                            <td></td>'."\n");
+	                        }
                             echo('                        </tr>'."\n");
                         }
                         ?>
