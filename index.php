@@ -191,7 +191,8 @@ foreach ($current_dir_folder_list as $item){
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAMAAADzapwJAAAAVFBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////8wXzyWAAAAG3RSTlMAAQIgJic0N0BHUVVZW1xdYm9wcXeFlZ2rrf2L0Jb5AAAAXUlEQVQYV8XNRw7AIBBDUYf03uvc/55hQAgQrBOvvt7GwBdLjimmF9EcqJAaulaiJaq+i5sodK1P1nluFOgdt2p85TytAoPyRtbGmpufkbnk2h1VXutqUzirCvyyFwMKCwz/lJP8AAAAAElFTkSuQmCC">
         </a>
     </div>
-
+	<script src="assets/js/classie.js"></script>
+	<script src="assets/js/cbpAnimatedHeader.min.js"></script>
 </body>
 
 </html>
