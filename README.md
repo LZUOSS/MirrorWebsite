@@ -1,7 +1,7 @@
 # Mirror Web Site
 This is the website code of Open Source Mirror Site of LZUOSS(Lanzhou University Open Source Society) which meant to show the mirror list of our mirror site.
 
-This a production version of the site. Which modified several things to fit the production mirror server environment.
+This a production slim version of the site. Which modified several things to fit the production mirror server environment.
 
 This site is based on the [Freelancer](http://startbootstrap.com/template-overviews/freelancer/) which is originally created by David Miller, Managing Parter at [Iron Summit Media Strategies](http://www.ironsummitmedia.com/) , and provided by [Start Bootstrap](http://startbootstrap.com/) .
 
