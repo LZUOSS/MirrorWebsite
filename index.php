@@ -56,16 +56,10 @@ foreach ($current_dir_folder_list as $item){
     <title>兰州大学开源社区镜像站</title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+<!--    <link href="./assets/css/bootstrap.css" rel="stylesheet">-->
 
     <!-- Custom CSS -->
-    <link href="./assets/css/freelancer.css" rel="stylesheet">
-    <link href="./assets/css/custom.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="./assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="./assets/css/Montserrat.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="./assets/css/style.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -116,7 +110,7 @@ foreach ($current_dir_folder_list as $item){
     <div class="container">
         <div class="col-md-9">
                 <div class="mirror_list">
-                    <h3><i class="fa fa-list"></i> 镜像列表 </h3>
+                    <h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAD1BMVEUAAAAsPlAsPlAsPlAsPlD44XfsAAAABHRSTlMA2tzef2ujvAAAACpJREFUKJFjYKAJUHFkUHGBAUeggIsLgwsCYBMwcWIwgfOdRm2hiS0kAwDO0DWZ6xj+BAAAAABJRU5ErkJggg==">镜像列表 </h3>
                     <table class="table table-striped table-hover">
                         <thead>
                         <tr>
@@ -148,10 +142,11 @@ foreach ($current_dir_folder_list as $item){
         </div>
         <div class="col-md-3">
                 <div class="sidebar">
-                    <h3><i class="fa fa-info-circle"></i> 通知公告 </h3>
-                    <p>This is a test.</p>
-                    <h3><i class="fa fa-question-circle"></i> 镜像帮助 </h3>
-                    <p>This is a test.</p>
+                    <h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAArlBMVEUAAAAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAd+Zw+AAAAOXRSTlMAAQIGCgsQEhMVGhsmOz1HVVZZW2ZnaXR8gIWGi4yPl5iam6KjpaiqsLK0t7nIytrc4OTm6ff5+/1S9qHIAAAA4klEQVQYGa3B60IBURiG0Qc5FVFqx6STikYqScN7/zfW7G/vCemntTiMylGFf5Xb40xSNm6X+et0qcLylB3lB+VG1Wp1pNx9mY3SVJ4DnLy0xK9rGQc4mYRCS8EAGChoEb1r3xvBiYL5R06FY8ylzC3elaILzFQmwXOKUsyXzB2eU7TAZIoc4BR9Yz4VOcApmmOeFDnAKXrEdBU5wCnqYmoyq2kH6KQrmRrBWN6QYCjvmaguLyFI5NUpnCk3JLhRrstGX9J69urN1pL6bOtp2zm7mqkKL032NHqTRbaY9BocwA8TBEhjmM6z0wAAAABJRU5ErkJggg=="> 通知公告 </h3>
+                    <p>镜像站现已恢复正常服务。部分镜像仍在同步当中，请耐心等待同步完成。</p>
+                    <p>镜像站启用新主页。</p>
+                    <h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAArlBMVEUAAAAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAsPlAd+Zw+AAAAOXRSTlMAAQIEBQYIDA0QEhUaHB8gISIqNDY3ODk6TWNka2xtb36FhoiLjJi0tbnBzM7P1eTm6Ont7/Hz9/tu1HFHAAAA8ElEQVQYGa3B61qCQBQF0D0cupdGGXQxL9gdTS2o2e//Ys1hBkW+/tVa+AeS5kVZFtNU0CUjy8AOBTvO12xZ9tAyYMclNvpUX7dHEfbSd6oeAlnRKQ5QM490lgJvROdzH4F5oTNETSydGzjHJ3DO6FiByqg+EuCBfAIQUaVQOb27Cck3ABHVFGrOrUkM4JSqgKrY+E7gmGeqEqpi4xrO4StrJdSCjQjAhaVXQM3YMIApGeRQGX+VQsWWgQEMAyuojRnAYTCCJ2t6cOitBEFCzwCGXh8bV+wYoCVZs2XVxw4ZWwb2XtAVZ7NFVc3zTPB3Py6QTy21376NAAAAAElFTkSuQmCC"> 镜像帮助 </h3>
+                    <p>部分开源软件镜像帮助，请参阅<a href="https://oss.lzu.edu.cn/wiki/mirror/help">兰大开源社区文档中心 > 镜像帮助</a></p>
                 </div>
         </div>
     </div>
@@ -165,10 +160,10 @@ foreach ($current_dir_folder_list as $item){
                         <h3>Contact us</h3>
                         <ul class="contact_list">
                             <li>
-                                <p><i class="fa fa-envelope"></i> E-Mail: <a href="mailto:oss.lzu.edu.cn@gmail.com" class="href">oss.lzu.edu.cn@gmail.com</a></p>
+                                <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAMAAADzapwJAAAAilBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////2N2iNAAAALXRSTlMAAQMHCAwNERQcIyYnKCosPD5CQ0dJSktoa2yImpu0ur7AyMrM19zg5PX3+/29DL5wAAAAhUlEQVQYGa3B2RaBUACG0S8kZZ4jQlIa/vd/PSfWsui4tDf/MbqrJQ+Amyw5kMpyAcayDDFmtb7Uc4w1XqIPiccK0LHn7PQWOt2DAKlY4md6ynwWhQTIiN1OJCPquLEMQI1qwzS9TthWagB6OQWOE5z1AugHQD8ApSwlsJclxOgPWvr8xwN5QS6H5V6ebgAAAABJRU5ErkJggg=="> E-Mail: <a href="mailto:oss.lzu.edu.cn@gmail.com" class="href">oss.lzu.edu.cn@gmail.com</a></p>
                             </li>
                             <li>
-                                <p><i class="fa fa-github"></i> <a href="https://github.com/LZUOSS/Mirror" class="href" target="_blank">GitHub</a></p>
+                                <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAMAAADzapwJAAAA6lBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+Le70HAAAATXRSTlMAAQIDBAYHCAoLDhAREhMUFyAhIiMlKSorLzY4O0FHSk5VV1tdXmdsbXGAg5GSmp2eo6aqq7Cyt7zAw8XHyM7P0dPZ2t7i5Ojp8fX5/XSksmgAAADTSURBVBgZfcHpIgJRAIbh7zjIniwlWcJYKlso2Yc0MvXe/+04M8bM+NPzaCKz1XoLv7reovI2P0mcTyvlkemvKHFM3vecYutQLxyNHq9vB09lG/Bg5Jg+bCh1A/tyKkBNKR8GcpowtErtAkVJr9BUZgaoSQrhUDlAXdIQGspYYE9SD3xlSkBV0gmwrT+mA8xLWuX9ngOrWLEL9BTpBEunjM8kFQIiFUUWRr7xLpblPONc6leVhlWsDbxMKVEOYU1OG+6sUrOtcUnO1ceO/rGKWE32A48TLksVDXzTAAAAAElFTkSuQmCC" /> <a href="https://github.com/LZUOSS/Mirror" class="href" target="_blank">GitHub</a></p>
                             </li>
                         </ul>
                     </div>
@@ -193,28 +188,9 @@ foreach ($current_dir_folder_list as $item){
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
     <div class="scroll-top page-scroll visible-xs visible-sm">
         <a class="btn btn-primary" href="#page-top">
-            <i class="fa fa-chevron-up"></i>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAMAAADzapwJAAAAVFBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////8wXzyWAAAAG3RSTlMAAQIgJic0N0BHUVVZW1xdYm9wcXeFlZ2rrf2L0Jb5AAAAXUlEQVQYV8XNRw7AIBBDUYf03uvc/55hQAgQrBOvvt7GwBdLjimmF9EcqJAaulaiJaq+i5sodK1P1nluFOgdt2p85TytAoPyRtbGmpufkbnk2h1VXutqUzirCvyyFwMKCwz/lJP8AAAAAElFTkSuQmCC">
         </a>
     </div>
-
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="./assets/js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="./assets/js/classie.js"></script>
-    <script src="./assets/js/cbpAnimatedHeader.js"></script>
-
-    <!-- Contact Form JavaScript -->
-    <script src="./assets/js/jqBootstrapValidation.js"></script>
-    <script src="./assets/js/contact_me.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="./assets/js/freelancer.js"></script>
 
 </body>
 
